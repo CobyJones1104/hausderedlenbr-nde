@@ -1,0 +1,93 @@
+---
+import BrandMark from './BrandMark.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer" id="kontakt">
+  <div class="container footer__top">
+    <div class="footer__brand">
+      <BrandMark size="compact" />
+      <p class="footer__tag">Tradition, die man schmeckt.</p>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Kontakt</p>
+      <address>
+        Hausnummer folgt<br />
+        97236 Randersacker am Main<br />
+        Telefon folgt<br />
+        <a href="#">E-Mail folgt</a>
+      </address>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Entdecken</p>
+      <ul>
+        <li><a href="#sortiment">Sortiment</a></li>
+        <li><a href="#handwerk">Handwerk</a></li>
+        <li><a href="#rezepte">Serviervorschläge</a></li>
+        <li><a href="#besuch">Besuch &amp; Öffnungszeiten</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Rechtliches</p>
+      <ul>
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© {year} Haus der edlen Brände</p>
+    <p>Handwerklich gebrannt in Franken</p>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--color-ink-950); color: var(--color-text-inverse-muted); padding-top: var(--space-xl); }
+  .footer__top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border-inverse);
+  }
+  .footer__tag {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: var(--space-sm);
+  }
+  .footer__heading {
+    font-family: var(--font-mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: var(--space-sm);
+  }
+  .footer__col address, .footer__col ul { font-size: var(--fs-small); line-height: 1.9; font-style: normal; }
+  .footer__col a:hover { color: #fff; }
+
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-2xs);
+    padding-block: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 860px) {
+    .footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 520px) {
+    .footer__top { grid-template-columns: 1fr; }
+  }
+</style>

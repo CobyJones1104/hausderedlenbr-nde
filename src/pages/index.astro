@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import PhilosophyQA from '../components/PhilosophyQA.astro';
+import ProductRange from '../components/ProductRange.astro';
+import Craft from '../components/Craft.astro';
+import Recipes from '../components/Recipes.astro';
+import Visit from '../components/Visit.astro';
+import Footer from '../components/Footer.astro';
+import { categories } from '../data/products';
+---
+
+<Layout
+  title="Haus der edlen Brände — Tradition, die man schmeckt."
+  description="Familie Piesch betreibt seit vier Generationen Weinbau und eine Brennerei in einem 400 Jahre alten Fachwerkhaus in Randersacker am Main. Streuobst-Edelbrände, Frankenwein und Hofverkauf."
+>
+  <Header />
+
+  <main id="main">
+    <Hero />
+
+    <PhilosophyQA
+      question="400 Jahre Fachwerk, vier Generationen Familie."
+      answer="Das Haus der edlen Brände ist ein rund 400 Jahre altes fränkisches Fachwerkhaus mitten in der altehrwürdigen Weinbaugemeinde Randersacker am Main. Unsere Familie betreibt hier seit vier Generationen Weinbau auf 4 Hektar und eine Brennerei mit 2 Hektar ökologisch wertvollen Streuobstwiesen. Andi und Peter Piesch leiten den Betrieb — und sind darin, außer zur Weinlese, die einzigen Arbeiter."
+    />
+
+    {categories.map((category, i) => (
+      <ProductRange category={category} id={i === 0 ? 'sortiment' : undefined} tone={i % 2 === 1 ? 'alt' : 'default'} />
+    ))}
+
+    <Craft />
+
+    <Recipes />
+
+    <Visit />
+
+    <Footer />
+  </main>
+</Layout>

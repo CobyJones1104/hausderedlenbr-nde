@@ -1,0 +1,31 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+}
+const { question, answer } = Astro.props;
+---
+
+<section class="philosophy section section--tight">
+  <div class="container philosophy__grid grid-12">
+    <div class="philosophy__q" data-reveal>
+      <p>{question}</p>
+    </div>
+    <div class="philosophy__a" data-reveal style="--reveal-delay: 100ms">
+      <p class="lead">{answer}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .philosophy__grid { align-items: start; }
+  .philosophy__q { grid-column: 1 / 6; }
+  .philosophy__a { grid-column: 7 / 13; }
+  .philosophy__q p {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: var(--fs-display-sm);
+    line-height: 1.15;
+  }
+</style>

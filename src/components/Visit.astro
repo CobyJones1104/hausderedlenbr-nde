@@ -1,0 +1,72 @@
+---
+const hours = [
+  { days: 'Mittwoch – Freitag', time: '13:30 – 17:00 Uhr' },
+  { days: 'Samstag', time: '10:00 – 13:00 Uhr' },
+];
+---
+
+<section class="section section--alt" id="besuch">
+  <div class="container visit__grid">
+    <div class="visit__media media media--placeholder media--4x3" data-placeholder-label="Foto folgt — Hofladen / Hofeinfahrt" data-reveal="clip"></div>
+
+    <div class="visit__content" data-reveal>
+      <p class="eyebrow">Besuch</p>
+      <p class="visit__text">
+        Neben der Möglichkeit, unsere gesamte Kollektion vor Ort zu erwerben,
+        bieten wir in unserem Hofladen außerdem eine umfassende Beratung zu
+        unseren verschiedenen Destillaten. Wir freuen uns auf Ihren Besuch.
+      </p>
+
+      <hr class="visit__rule" />
+
+      <h3>Öffnungszeiten</h3>
+      <dl class="visit__hours">
+        {hours.map((h) => (
+          <div>
+            <dt>{h.days}</dt>
+            <dd>{h.time}</dd>
+          </div>
+        ))}
+      </dl>
+      <p class="visit__note">Bitte beachten Sie, dass wir an Feiertagen geschlossen haben.</p>
+
+      <hr class="visit__rule" />
+
+      <a class="visit__cta" href="#kontakt">
+        Besuchen Sie uns
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .visit__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: center;
+  }
+  .visit__text { font-size: var(--fs-body); line-height: 1.7; margin-top: var(--space-sm); max-width: 46ch; }
+  .visit__rule { border: none; border-top: 1px solid var(--color-border); margin-block: var(--space-md); }
+  .visit__hours { display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-sm); }
+  .visit__hours dt { font-weight: 600; }
+  .visit__hours dd { color: var(--color-text-muted); margin: 0; }
+  .visit__note { font-size: var(--fs-small); color: var(--color-text-muted); margin-top: var(--space-sm); }
+  .visit__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .visit__cta svg { width: 1.1em; height: 1.1em; transition: transform var(--motion-fast) var(--ease-standard); }
+  .visit__cta:hover svg { transform: translateX(4px); }
+
+  @media (max-width: 860px) {
+    .visit__grid { grid-template-columns: 1fr; }
+  }
+</style>

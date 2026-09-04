@@ -1,0 +1,123 @@
+/*
+  Design tokens — Haus der edlen Brände
+  Reference: brennerei-ehringhausen.de — bright, monochrome, editorial
+  e-commerce look. White/cream ground, near-black ink, bold condensed
+  uppercase display type, thin hairline rules, black label/award bars
+  on product photography. Color lives almost entirely in the product
+  photos themselves; the accent is used sparingly (links, one CTA).
+*/
+
+:root {
+  /* ---------- Color: brand accent (used sparingly) ---------- */
+  --color-copper-900: #4a2c0f;
+  --color-copper-700: #7c4a16;
+  --color-copper: #a5651f;       /* the spirit — accent only, not a base color */
+  --color-copper-500: #c4813a;
+  --color-copper-300: #e3b98a;
+  --color-copper-100: #f8ead6;
+
+  /* ---------- Color: monochrome neutrals ---------- */
+  --color-ink-950: #0a0a0a;      /* near-true-black */
+  --color-ink-900: #171717;
+  --color-ink-700: #3d3d3d;
+  --color-stone-600: #5c5c5c;
+  --color-sand-400: #9c9992;
+  --color-linen-200: #e7e4dd;
+  --color-linen-100: #f4f2ee;
+  --color-paper: #fdfcfa;
+
+  /* ---------- Semantic color ---------- */
+  --color-bg: var(--color-paper);
+  --color-bg-alt: var(--color-linen-100);
+  --color-bg-inverse: var(--color-ink-950);
+  --color-text: var(--color-ink-950);
+  --color-text-muted: var(--color-stone-600);
+  --color-text-inverse: #ffffff;
+  --color-text-inverse-muted: var(--color-sand-400);
+  --color-accent: var(--color-copper);
+  --color-accent-strong: var(--color-copper-700);
+  --color-border: rgba(10, 10, 10, 0.12);
+  --color-border-inverse: rgba(255, 255, 255, 0.18);
+  --color-alert: #c81e1e;      /* stock/status badges only — "ausverkauft" etc. */
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Inter', -apple-system, sans-serif;
+
+  --fs-statement: clamp(4rem, 10vw, 10rem);
+  --fs-hero: clamp(3.25rem, 8vw, 7.5rem);
+  --fs-display-lg: clamp(2.5rem, 5vw, 5rem);
+  --fs-display-md: clamp(2rem, 3.6vw, 3.25rem);
+  --fs-display-sm: clamp(1.5rem, 2.4vw, 2rem);
+  --fs-eyebrow: 0.75rem;
+  --fs-lead: clamp(1.0625rem, 1.3vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.6875rem;
+
+  --lh-display: 1;
+  --lh-display-tight: 0.95;
+  --lh-body: 1.6;
+  --lh-lead: 1.5;
+
+  --ls-display: 0em;
+  --ls-display-tight: -0.01em;
+  --ls-eyebrow: 0.12em;
+  --ls-body: 0;
+
+  /* ---------- Spacing (fluid) ---------- */
+  --space-3xs: clamp(0.25rem, 0.2rem + 0.2vw, 0.375rem);
+  --space-2xs: clamp(0.5rem, 0.4rem + 0.4vw, 0.75rem);
+  --space-xs: clamp(0.75rem, 0.6rem + 0.6vw, 1.125rem);
+  --space-sm: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --space-md: clamp(2rem, 1.6rem + 1.6vw, 3rem);
+  --space-lg: clamp(3rem, 2.2rem + 3.2vw, 5rem);
+  --space-xl: clamp(4.5rem, 3.2rem + 5.2vw, 8rem);
+  --space-2xl: clamp(6rem, 4rem + 8vw, 11rem);
+  --space-section: clamp(5rem, 3.5rem + 6vw, 9rem);
+
+  /* ---------- Layout ---------- */
+  --container-max: 90rem;
+  --container-padding: clamp(1.25rem, 1rem + 2vw, 3.5rem);
+  --container-text-max: 42rem;
+  --grid-columns: 12;
+  --grid-gap: clamp(1rem, 0.6rem + 1.6vw, 2rem);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-pill: 999px;
+
+  /* ---------- Motion ---------- */
+  --motion-fast: 250ms;
+  --motion-medium: 450ms;
+  --motion-slow: 850ms;
+  --motion-slower: 1200ms;
+
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+
+  --reveal-distance: 40px;
+  --reveal-duration: 800ms;
+
+  /* ---------- Elevation ---------- */
+  --shadow-sm: 0 1px 2px rgba(22, 17, 12, 0.06);
+  --shadow-md: 0 8px 30px rgba(22, 17, 12, 0.10);
+  --shadow-lg: 0 24px 60px rgba(22, 17, 12, 0.16);
+
+  /* ---------- Z-index scale ---------- */
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-toast: 300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 1ms;
+    --motion-medium: 1ms;
+    --motion-slow: 1ms;
+    --motion-slower: 1ms;
+    --reveal-distance: 0px;
+  }
+}

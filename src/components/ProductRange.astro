@@ -1,0 +1,48 @@
+---
+import type { ProductCategory } from '../data/products';
+
+interface Props {
+  category: ProductCategory;
+  tone?: 'default' | 'alt';
+  id?: string;
+}
+const { category, tone = 'default', id } = Astro.props;
+---
+
+<section class:list={['section', tone === 'alt' && 'section--alt']} id={id}>
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-reveal>{category.title}</h2>
+      <span class="section-heading__mark" aria-hidden="true">—</span>
+    </div>
+
+    <div class="product-grid" data-stagger>
+      {category.items.map((item) => (
+        <article class="product-card">
+          <div
+            class="product-card__media media media--placeholder media--3x4"
+            data-placeholder-label="Flaschenfoto folgt"
+          >
+            {item.badge && (
+              <span class:list={['product-card__badge', item.badge.variant === 'alert' && 'product-card__badge--alert']}>
+                {item.badge.label}
+              </span>
+            )}
+          </div>
+          <p class="product-card__name"><span>{item.name}</span><span>{item.abv}</span></p>
+          <p class="product-card__desc">{item.description}</p>
+          <p class="product-card__price">
+            <span>{item.price}</span>
+            <span>{item.volume}</span>
+          </p>
+          {item.pricePerLiter && (
+            <p class="product-card__meta">
+              <span>{item.pricePerLiter}</span>
+              <span>inkl. MwSt. zzgl. Versand</span>
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

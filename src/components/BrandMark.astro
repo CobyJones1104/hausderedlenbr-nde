@@ -1,0 +1,59 @@
+---
+/**
+ * Text wordmark lockup (no logo file exists yet — swap for a real mark by
+ * replacing this component's markup with an <img src="/images/logo.svg">
+ * once branding/photography arrives).
+ */
+interface Props {
+  size?: 'compact' | 'default' | 'large';
+  class?: string;
+}
+const { size = 'default', class: className } = Astro.props;
+---
+
+<span class:list={['brand-mark', `brand-mark--${size}`, className]}>
+  <span class="brand-mark__name">Haus der edlen Brände</span>
+  <span class="brand-mark__divider" aria-hidden="true"></span>
+  <span class="brand-mark__tag">Traditionsbrennerei</span>
+</span>
+
+<style>
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7em;
+    font-family: var(--font-display);
+    white-space: nowrap;
+  }
+  .brand-mark__name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--color-text);
+  }
+  .brand-mark__divider {
+    width: 1px;
+    height: 0.9em;
+    background: var(--color-border);
+  }
+  .brand-mark__tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+  .brand-mark--compact .brand-mark__name { font-size: 0.9375rem; }
+  .brand-mark--compact .brand-mark__tag { display: none; }
+  .brand-mark--compact .brand-mark__divider { display: none; }
+  .brand-mark--large .brand-mark__name { font-size: 1.5rem; }
+
+  :global(.section--dark) .brand-mark__name,
+  :global(footer) .brand-mark__name { color: var(--color-text-inverse); }
+  :global(.section--dark) .brand-mark__tag,
+  :global(footer) .brand-mark__tag { color: var(--color-text-inverse-muted); }
+  :global(.section--dark) .brand-mark__divider,
+  :global(footer) .brand-mark__divider { background: var(--color-border-inverse); }
+</style>

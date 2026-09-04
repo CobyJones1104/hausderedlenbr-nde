@@ -1,0 +1,56 @@
+---
+const recipes = [
+  { number: '01', name: 'Zwetschgen Sour', base: 'Zwetschgenbrand' },
+  { number: '02', name: 'Whisky Sour', base: 'Fränkischer Single Malt' },
+  { number: '03', name: 'Gin Fizz Waldbeere', base: 'Dry Gin' },
+  { number: '04', name: 'Kirschbrand Espresso', base: 'Kirschbrand' },
+];
+---
+
+<section class="section" id="rezepte">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-reveal>Serviervorschläge</h2>
+      <span class="section-heading__mark" aria-hidden="true">—</span>
+    </div>
+
+    <div class="recipes-grid" data-stagger>
+      {recipes.map((r) => (
+        <article class="recipe-card">
+          <div class="recipe-card__media media media--placeholder media--1x1" data-placeholder-label="Foto folgt"></div>
+          <p class="recipe-card__meta">{r.base}</p>
+          <h3 class="recipe-card__title">{r.name}</h3>
+          <p class="recipe-card__number">Rezept N° {r.number}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-md) var(--grid-gap);
+  }
+  @media (max-width: 960px) { .recipes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .recipes-grid { grid-template-columns: 1fr; } }
+
+  .recipe-card__media { margin-bottom: var(--space-sm); }
+  .recipe-card__meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-micro);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .recipe-card__title {
+    font-size: 1.0625rem;
+    margin-top: 0.4em;
+  }
+  .recipe-card__number {
+    font-size: var(--fs-small);
+    color: var(--color-text-muted);
+    margin-top: 0.2em;
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+const steps = [
+  { number: '01', title: 'Maischen', text: 'Ausgewählte Früchte oder Getreide reifen in der Maische zu ihrem vollen Aroma.' },
+  { number: '02', title: 'Brennen', text: 'Doppelte Destillation im Kupferbrenner trennt Herz vom Vor- und Nachlauf.' },
+  { number: '03', title: 'Reifen', text: 'Lagerung im Eichenfass oder Glasballon — Zeit, die niemand ersetzen kann.' },
+  { number: '04', title: 'Abfüllen', text: 'Von Hand etikettiert und abgefüllt, bereit für den eigenen Hofladen.' },
+];
+---
+
+<section class="section section--dark" id="handwerk">
+  <div class="container craft__grid">
+    <div class="craft__media media media--placeholder media--3x4" data-placeholder-label="Foto folgt — Brennkessel in Aktion" data-reveal="clip"></div>
+
+    <div class="craft__content">
+      <p class="eyebrow eyebrow--inverse">Handwerk</p>
+      <h2 data-reveal>Der lange Weg<br />zum Brand.</h2>
+      <p class="lead" data-reveal style="--reveal-delay: 80ms">
+        Von der Frucht bis zur Flasche vergehen Wochen, manchmal Jahre. Jeder
+        Schritt wird von Hand begleitet — so, wie es in unserem Haus seit
+        Generationen üblich ist.
+      </p>
+
+      <ol class="craft__steps" data-stagger>
+        {steps.map((step) => (
+          <li>
+            <span class="craft__step-number">{step.number}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<style>
+  .craft__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: var(--space-xl);
+    align-items: center;
+  }
+  .craft__content h2 { font-size: var(--fs-display-md); margin-block: var(--space-sm); }
+
+  .craft__steps { margin-top: var(--space-lg); display: flex; flex-direction: column; gap: var(--space-md); }
+  .craft__steps li { display: flex; gap: var(--space-sm); align-items: baseline; }
+  .craft__step-number {
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    color: var(--color-copper-300);
+    flex-shrink: 0;
+    width: 2ch;
+  }
+  .craft__steps h3 { font-size: 1.125rem; margin-bottom: 0.2em; }
+  .craft__steps p { color: var(--color-text-inverse-muted); font-size: var(--fs-small); }
+
+  @media (max-width: 860px) {
+    .craft__grid { grid-template-columns: 1fr; }
+  }
+</style>
