@@ -1,4 +1,5 @@
 ---
+import Illustration from './Illustration.astro';
 const steps = [
   { number: '01', title: 'Maischen', text: 'Ausgewählte Früchte oder Getreide reifen in der Maische zu ihrem vollen Aroma.' },
   { number: '02', title: 'Brennen', text: 'Doppelte Destillation im Kupferbrenner trennt Herz vom Vor- und Nachlauf.' },
@@ -9,7 +10,9 @@ const steps = [
 
 <section class="section section--dark" id="handwerk">
   <div class="container craft__grid">
-    <div class="craft__media media media--placeholder media--3x4" data-placeholder-label="Foto folgt — Brennkessel in Aktion" data-reveal="clip"></div>
+    <div class="craft__media media media--placeholder media--3x4" data-placeholder-label="Foto folgt — Brennkessel in Aktion" data-reveal="clip">
+      <Illustration variant="still" />
+    </div>
 
     <div class="craft__content">
       <p class="eyebrow eyebrow--inverse">Handwerk</p>

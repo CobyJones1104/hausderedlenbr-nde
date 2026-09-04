@@ -1,4 +1,5 @@
 ---
+import Illustration from './Illustration.astro';
 import type { ProductCategory } from '../data/products';
 
 interface Props {
@@ -23,6 +24,7 @@ const { category, tone = 'default', id } = Astro.props;
             class="product-card__media media media--placeholder media--3x4"
             data-placeholder-label="Flaschenfoto folgt"
           >
+            <Illustration variant="bottle" />
             {item.badge && (
               <span class:list={['product-card__badge', item.badge.variant === 'alert' && 'product-card__badge--alert']}>
                 {item.badge.label}

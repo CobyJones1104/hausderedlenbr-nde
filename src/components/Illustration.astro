@@ -1,0 +1,70 @@
+---
+/**
+ * Original line-art illustrations (no external assets, no licensing risk)
+ * used to dress up media placeholders until real photography arrives.
+ */
+interface Props {
+  variant: 'still' | 'vine' | 'house' | 'orchard' | 'bottle';
+  class?: string;
+}
+const { variant, class: className } = Astro.props;
+---
+
+{variant === 'still' && (
+  <svg class:list={['illustration', className]} viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M70 130h60v30a10 10 0 0 1-10 10H80a10 10 0 0 1-10-10v-30Z" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M85 130V95a15 15 0 0 1 30 0v35" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M100 80V55" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M92 55h16l-4 15h-8l-4-15Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M104 60c8 4 14 12 14 24v20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M118 104h14a6 6 0 0 1 6 6v10a6 6 0 0 1-6 6h-10" stroke="currentColor" stroke-width="2.5"/>
+    <ellipse cx="100" cy="145" rx="22" ry="4" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+  </svg>
+)}
+
+{variant === 'vine' && (
+  <svg class:list={['illustration', className]} viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M100 150V70" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M100 90c-14-4-22-16-20-30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M100 110c14-4 22-16 20-30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="78" cy="58" r="7" stroke="currentColor" stroke-width="2"/>
+    <circle cx="122" cy="78" r="7" stroke="currentColor" stroke-width="2"/>
+    <path d="M78 150h44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M85 150c0 10 6 18 15 18s15-8 15-18" stroke="currentColor" stroke-width="2"/>
+  </svg>
+)}
+
+{variant === 'house' && (
+  <svg class:list={['illustration', className]} viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M55 100 100 62l45 38" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M65 95v50h70V95" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M65 115h70M65 130h70" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <path d="M85 115v30M115 115v30" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+    <rect x="92" y="120" width="16" height="25" stroke="currentColor" stroke-width="2"/>
+  </svg>
+)}
+
+{variant === 'orchard' && (
+  <svg class:list={['illustration', className]} viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M100 150V90" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M100 100c-10-18-30-20-42-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M100 90c10-18 30-20 42-10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="60" cy="95" r="9" stroke="currentColor" stroke-width="2"/>
+    <circle cx="140" cy="85" r="9" stroke="currentColor" stroke-width="2"/>
+    <circle cx="100" cy="70" r="9" stroke="currentColor" stroke-width="2"/>
+    <path d="M80 150h40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+)}
+
+{variant === 'bottle' && (
+  <svg class:list={['illustration', className]} viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M90 60h20v20l8 10v70a8 8 0 0 1-8 8H90a8 8 0 0 1-8-8V90l8-10V60Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M88 55h24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M82 120h36" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+    <rect x="86" y="130" width="28" height="16" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  </svg>
+)}
+
+<style>
+  .illustration { width: 100%; height: 100%; }
+</style>

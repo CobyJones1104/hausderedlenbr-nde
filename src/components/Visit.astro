@@ -1,4 +1,5 @@
 ---
+import Illustration from './Illustration.astro';
 const hours = [
   { days: 'Mittwoch – Freitag', time: '13:30 – 17:00 Uhr' },
   { days: 'Samstag', time: '10:00 – 13:00 Uhr' },
@@ -7,7 +8,9 @@ const hours = [
 
 <section class="section section--alt" id="besuch">
   <div class="container visit__grid">
-    <div class="visit__media media media--placeholder media--4x3" data-placeholder-label="Foto folgt — Hofladen / Hofeinfahrt" data-reveal="clip"></div>
+    <div class="visit__media media media--placeholder media--4x3" data-placeholder-label="Foto folgt — Hofladen / Hofeinfahrt" data-reveal="clip">
+      <Illustration variant="house" />
+    </div>
 
     <div class="visit__content" data-reveal>
       <p class="eyebrow">Besuch</p>

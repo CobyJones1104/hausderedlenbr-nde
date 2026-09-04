@@ -53,12 +53,19 @@ echtes Logo (SVG/PNG) vorliegt: Komponente auf
 ### 2. Fotos
 
 Jeder `.media--placeholder`-Block (Hero, Produktkarten, Handwerk, Besuch,
-Rezepte) zeigt aktuell nur ein dunkles Platzhalter-Feld. Es gibt eine
-Reportage von Giel Bildwelten, die laut Auftraggeber für dieses Haus
-entstanden ist und deren Nutzungsrechte vorliegen — sobald die Bilddateien
-angeliefert sind, in `public/images/` ablegen und die
-`<div class="media--placeholder">`-Blöcke durch `<img>`/`<picture>`
-ersetzen.
+Rezepte) zeigt aktuell eine selbst gezeichnete Linien-Illustration
+(`src/components/Illustration.astro` — Brennkessel, Weinrebe, Fachwerkhaus,
+Streuobst, Flasche) statt eines echten Fotos. Bewusst so gelöst, weil in
+dieser Bau-Umgebung kein Zugriff auf externe Bild-CDNs (Unsplash, Pexels,
+Pixabay, die Portfolio-Seite des Fotografen der Reportage, …) möglich war
+— die Netzwerk-Policy dieser Session blockt praktisch alle Fremd-Domains.
+
+Sobald echte Fotos vorliegen — **wichtig:** die Reportage von Giel
+Bildwelten darf nur mit geklärten Nutzungsrechten verwendet werden, dazu
+muss der tatsächliche Auftraggeber/Rechteinhaber (die Brennerei) zustimmen,
+nicht nur ein Familienmitglied — in `public/images/` ablegen und die
+`<Illustration>`-Aufrufe in den jeweiligen Komponenten durch `<img>`/
+`<picture>` ersetzen.
 
 ### 3. Sortiment & Preise
 

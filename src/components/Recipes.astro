@@ -1,9 +1,11 @@
 ---
+import Illustration from './Illustration.astro';
+
 const recipes = [
-  { number: '01', name: 'Zwetschgen Sour', base: 'Zwetschgenbrand' },
-  { number: '02', name: 'Whisky Sour', base: 'Fränkischer Single Malt' },
-  { number: '03', name: 'Gin Fizz Waldbeere', base: 'Dry Gin' },
-  { number: '04', name: 'Kirschbrand Espresso', base: 'Kirschbrand' },
+  { number: '01', name: 'Zwetschgen Sour', base: 'Zwetschgenbrand', icon: 'bottle' as const },
+  { number: '02', name: 'Silvaner Spritz', base: 'Silvaner trocken', icon: 'vine' as const },
+  { number: '03', name: 'Birnen Fizz', base: 'Williamsbirnenbrand', icon: 'orchard' as const },
+  { number: '04', name: 'Kirschbrand Espresso', base: 'Kirschbrand', icon: 'bottle' as const },
 ];
 ---
 
@@ -17,7 +19,9 @@ const recipes = [
     <div class="recipes-grid" data-stagger>
       {recipes.map((r) => (
         <article class="recipe-card">
-          <div class="recipe-card__media media media--placeholder media--1x1" data-placeholder-label="Foto folgt"></div>
+          <div class="recipe-card__media media media--placeholder media--1x1" data-placeholder-label="Foto folgt">
+            <Illustration variant={r.icon} />
+          </div>
           <p class="recipe-card__meta">{r.base}</p>
           <h3 class="recipe-card__title">{r.name}</h3>
           <p class="recipe-card__number">Rezept N° {r.number}</p>

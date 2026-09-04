@@ -1,9 +1,11 @@
 ---
+import Illustration from './Illustration.astro';
 /** Full-bleed hero — swap .media--placeholder for a real photo/video once assets arrive. */
 ---
 
 <section class="hero">
-  <div class="hero__media media media--placeholder" data-placeholder-label="Foto folgt — z. B. Brennkessel, Fasslager oder Etikett in Nahaufnahme">
+  <div class="hero__media media media--placeholder media--placeholder--dark" data-placeholder-label="Foto folgt — z. B. Brennkessel, Fasslager oder Etikett in Nahaufnahme">
+    <Illustration variant="still" />
   </div>
   <div class="hero__content container">
     <h1 data-reveal>Tradition,<br />die man <em>schmeckt.</em></h1>

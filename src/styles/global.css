@@ -359,22 +359,52 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-pill);
 }
 
-/* Placeholder media block — used wherever a real photo is still missing */
+/*
+  Placeholder media block — used wherever a real photo is still missing.
+  Holds an <Illustration> (original line art, no licensing risk) centered
+  on warm paper, plus a small "Foto folgt" tag so it reads as an
+  intentional placeholder rather than a broken image.
+*/
 .media--placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(155deg, var(--color-ink-900), var(--color-ink-950));
+  background: var(--color-linen-100);
 }
-.media--placeholder::after {
+.media--placeholder .illustration {
+  width: 32%;
+  height: 32%;
+  color: var(--color-copper-500);
+  opacity: 0.6;
+}
+.media--placeholder[data-placeholder-label]::after {
   content: attr(data-placeholder-label);
+  position: absolute;
+  left: var(--space-xs);
+  bottom: var(--space-xs);
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-sand-400);
-  text-align: center;
-  padding: var(--space-sm);
+  color: var(--color-text-muted);
+  background: rgba(253, 252, 250, 0.85);
+  padding: 0.35em 0.7em;
+  border-radius: var(--radius-pill);
+}
+
+/* Dark variant — used on full-bleed hero over white headline text */
+.media--placeholder--dark {
+  background: linear-gradient(155deg, var(--color-ink-900), var(--color-ink-950));
+}
+.media--placeholder--dark .illustration {
+  width: 46%;
+  height: 46%;
+  color: var(--color-text-inverse-muted);
+  opacity: 0.35;
+}
+.media--placeholder--dark[data-placeholder-label]::after {
+  color: var(--color-text-inverse-muted);
+  background: rgba(10, 10, 10, 0.55);
 }
 
 @media (max-width: 768px) {
