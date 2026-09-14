@@ -24,6 +24,8 @@ const { size = 'default', class: className } = Astro.props;
     gap: 0.7em;
     font-family: var(--font-display);
     white-space: nowrap;
+    min-width: 0;
+    max-width: 100%;
   }
   .brand-mark__name {
     font-size: 1.05rem;
@@ -31,6 +33,9 @@ const { size = 'default', class: className } = Astro.props;
     letter-spacing: 0.01em;
     text-transform: uppercase;
     color: var(--color-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
   }
   .brand-mark__divider {
     width: 1px;

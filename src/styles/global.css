@@ -4,6 +4,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+::selection { background: var(--color-copper-300); color: var(--color-ink-950); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -45,25 +46,6 @@ h1, h2, h3, h4 {
   color: var(--color-text);
   text-transform: uppercase;
 }
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2xs);
-  font-family: var(--font-mono);
-  font-size: var(--fs-eyebrow);
-  font-weight: 500;
-  letter-spacing: var(--ls-eyebrow);
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-.eyebrow::before {
-  content: '';
-  width: 22px;
-  height: 1px;
-  background: currentColor;
-}
-.eyebrow--inverse { color: var(--color-gold); }
 
 .lead {
   font-size: var(--fs-lead);
@@ -298,7 +280,7 @@ h1, h2, h3, h4 {
 @media (max-width: 960px) {
   .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 560px) {
+@media (max-width: 340px) {
   .product-grid { grid-template-columns: 1fr; }
 }
 
@@ -320,6 +302,7 @@ h1, h2, h3, h4 {
 .product-card__badge--alert { background: var(--color-alert); }
 .product-card__name {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--space-sm);
   font-family: var(--font-display);
@@ -327,12 +310,19 @@ h1, h2, h3, h4 {
   font-weight: 600;
   text-transform: uppercase;
 }
+.product-card__name span:first-child {
+  min-width: 0;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
 .product-card__name span:last-child {
   font-family: var(--font-mono);
   font-weight: 400;
   text-transform: none;
   color: var(--color-text-muted);
   white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
 }
 .product-card__desc {
   font-size: var(--fs-small);
@@ -346,6 +336,7 @@ h1, h2, h3, h4 {
   gap: var(--space-sm);
   font-size: var(--fs-small);
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
   border-top: 1px solid var(--color-border);
   margin-top: var(--space-xs);
   padding-top: 0.6em;
@@ -356,6 +347,7 @@ h1, h2, h3, h4 {
   gap: var(--space-sm);
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
+  font-variant-numeric: tabular-nums;
   color: var(--color-text-muted);
   margin-top: 0.3em;
 }

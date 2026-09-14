@@ -19,7 +19,7 @@ const hours = [
     </div>
 
     <div class="visit__content" data-reveal>
-      <p class="eyebrow">Besuch</p>
+      <h2 class="visit__heading">Besuchen Sie uns im Hofladen</h2>
       <p class="visit__text">
         Neben der Möglichkeit, unsere gesamte Kollektion vor Ort zu erwerben,
         bieten wir in unserem Hofladen außerdem eine umfassende Beratung zu
@@ -56,6 +56,7 @@ const hours = [
     gap: var(--space-xl);
     align-items: center;
   }
+  .visit__heading { font-size: var(--fs-display-sm); }
   .visit__text { font-size: var(--fs-body); line-height: 1.7; margin-top: var(--space-sm); max-width: 46ch; }
   .visit__rule { border: none; border-top: 1px solid var(--color-border); margin-block: var(--space-md); }
   .visit__hours { display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-sm); }
