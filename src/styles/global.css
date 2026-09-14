@@ -235,6 +235,43 @@ h1, h2, h3, h4 {
   }
 }
 
+/*
+  Scroll-linked parallax drift (src/scripts/parallax.ts). The image sits
+  scaled up inside its overflow-hidden `.media` box; JS translates it by a
+  fraction of its distance from viewport-center every scroll frame.
+  Deliberately NO transition on transform here — a transition would make
+  the image visibly lag behind the user's scroll input instead of tracking
+  it 1:1. `will-change` is the only performance aid; the parallax script
+  itself gates updates to elements currently near the viewport.
+*/
+[data-parallax] { overflow: hidden; }
+[data-parallax] > img,
+[data-parallax] > video {
+  transform: scale(1.14);
+  transition: none;
+  will-change: transform;
+}
+
+/*
+  Where an image also carries the clip-path entrance reveal, JS parallax
+  owns `transform` exclusively (it sets the baseline scale itself) — the
+  reveal system contributes only the clip-path wipe, never a transform
+  transition, so the two animations never fight over the same property.
+*/
+.media[data-reveal='clip'][data-parallax] > * {
+  transform: none;
+  transition: clip-path var(--reveal-duration) var(--ease-standard);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.media[data-reveal='clip'][data-parallax].is-revealed > * { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] > img,
+  [data-parallax] > video {
+    transform: none !important;
+  }
+}
+
 /* ---------- Section heading with rule (eyebrow-style category title) ---------- */
 .section-heading {
   display: flex;

@@ -19,7 +19,7 @@ const awards = [
 
     <div class="awards__grid" data-stagger>
       {awards.map((a) => (
-        <div class="awards__media media media--4x3">
+        <div class="awards__media media media--4x3" data-parallax>
           <img src={a.src} alt={a.alt} loading="lazy" decoding="async" />
         </div>
       ))}

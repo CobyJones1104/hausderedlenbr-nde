@@ -22,7 +22,7 @@ const photos = [
     <div class="gallery-grid" data-stagger>
       {photos.map((p) => (
         <div class:list={['gallery-item', p.big && 'gallery-item--big']}>
-          <div class="media media--4x3 media--hover">
+          <div class="media media--4x3" data-parallax>
             <img src={p.src} alt={p.alt} loading="lazy" decoding="async" />
           </div>
         </div>

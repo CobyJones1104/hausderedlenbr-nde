@@ -19,7 +19,7 @@ const { category, tone = 'default', id, leadImage } = Astro.props;
     </div>
 
     {leadImage && (
-      <div class="category-lead media media--21x9" data-reveal="clip">
+      <div class="category-lead media media--21x9" data-reveal="clip" data-parallax>
         <img src={leadImage.src} alt={leadImage.alt} loading="lazy" decoding="async" />
         {leadImage.caption && <span class="media__caption">{leadImage.caption}</span>}
       </div>
