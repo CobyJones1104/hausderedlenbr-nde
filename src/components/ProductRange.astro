@@ -6,8 +6,9 @@ interface Props {
   category: ProductCategory;
   tone?: 'default' | 'alt';
   id?: string;
+  leadImage?: { src: string; alt: string; caption?: string };
 }
-const { category, tone = 'default', id } = Astro.props;
+const { category, tone = 'default', id, leadImage } = Astro.props;
 ---
 
 <section class:list={['section', tone === 'alt' && 'section--alt']} id={id}>
@@ -16,6 +17,13 @@ const { category, tone = 'default', id } = Astro.props;
       <h2 data-reveal>{category.title}</h2>
       <span class="section-heading__mark" aria-hidden="true">—</span>
     </div>
+
+    {leadImage && (
+      <div class="category-lead media media--21x9" data-reveal="clip">
+        <img src={leadImage.src} alt={leadImage.alt} loading="lazy" decoding="async" />
+        {leadImage.caption && <span class="media__caption">{leadImage.caption}</span>}
+      </div>
+    )}
 
     <div class="product-grid" data-stagger>
       {category.items.map((item) => (
@@ -48,3 +56,7 @@ const { category, tone = 'default', id } = Astro.props;
     </div>
   </div>
 </section>
+
+<style>
+  .category-lead { margin-bottom: var(--space-lg); }
+</style>

@@ -75,7 +75,7 @@ export const categories: ProductCategory[] = [
       {
         name: 'Silvaner trocken',
         abv: '12,5% vol',
-        description: 'Vom eigenen Weinberg in Randersacker — die typische Franken-Rebsorte.',
+        description: 'Vom eigenen Weinberg in der Lage Sonnenstuhl — die typische Franken-Rebsorte.',
         volume: '0,75 L',
         price: 'auf Anfrage',
         pricePerLiter: '',
@@ -89,12 +89,13 @@ export const categories: ProductCategory[] = [
         pricePerLiter: '',
       },
       {
-        name: 'Spätburgunder Rosé',
-        abv: '12,5% vol',
-        description: 'Zartrosa und fruchtig, aus eigener Lese gekeltert.',
+        name: 'Regent Holzfass',
+        abv: '13% vol',
+        description: 'Rotwein aus der Lage Sonnenstuhl, im Holzfass ausgebaut.',
         volume: '0,75 L',
         price: 'auf Anfrage',
         pricePerLiter: '',
+        badge: { label: 'Lage Sonnenstuhl' },
       },
       {
         name: 'Frankenwein im Bocksbeutel',

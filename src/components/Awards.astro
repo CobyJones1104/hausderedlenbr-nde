@@ -1,0 +1,50 @@
+---
+const awards = [
+  { src: '/images/praemierung-staatsehrenpreis-1.jpg', alt: 'Verleihung des Bayerischen Staatsehrenpreises für Edelbrenner' },
+  { src: '/images/praemierung-staatsehrenpreis-2.jpg', alt: 'Verleihung des Staatsehrenpreises des Freistaates Bayern' },
+];
+---
+
+<section class="section section--tight" id="praemierungen">
+  <div class="container awards">
+    <div class="awards__text" data-reveal>
+      <p class="eyebrow">Prämierungen</p>
+      <h2>Bayerischer Staatsehrenpreis<br />für Edelbrenner</h2>
+      <p class="lead">
+        Ausgezeichnet vom Bayerischen Staatsministerium für Ernährung,
+        Landwirtschaft und Forsten im Rahmen von BayernBrand — Anerkennung
+        für Qualität, die sich nicht abkürzen lässt.
+      </p>
+    </div>
+
+    <div class="awards__grid" data-stagger>
+      {awards.map((a) => (
+        <div class="awards__media media media--4x3">
+          <img src={a.src} alt={a.alt} loading="lazy" decoding="async" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .awards {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+    gap: var(--space-xl);
+    align-items: center;
+  }
+  .awards__text h2 { font-size: var(--fs-display-sm); margin-block: var(--space-sm); }
+  .awards__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--grid-gap);
+  }
+
+  @media (max-width: 860px) {
+    .awards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .awards__grid { grid-template-columns: 1fr; }
+  }
+</style>

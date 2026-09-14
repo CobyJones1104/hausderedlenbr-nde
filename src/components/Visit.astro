@@ -1,5 +1,4 @@
 ---
-import Illustration from './Illustration.astro';
 const hours = [
   { days: 'Mittwoch – Freitag', time: '13:30 – 17:00 Uhr' },
   { days: 'Samstag', time: '10:00 – 13:00 Uhr' },
@@ -8,8 +7,15 @@ const hours = [
 
 <section class="section section--alt" id="besuch">
   <div class="container visit__grid">
-    <div class="visit__media media media--placeholder media--4x3" data-placeholder-label="Foto folgt — Hofladen / Hofeinfahrt" data-reveal="clip">
-      <Illustration variant="house" />
+    <div class="visit__media media media--4x3" data-reveal="clip">
+      <img
+        src="/images/haus-fachwerk.jpg"
+        alt="Das rund 400 Jahre alte Fachwerkhaus in Randersacker am Main"
+        width="350"
+        height="238"
+        loading="lazy"
+        decoding="async"
+      />
     </div>
 
     <div class="visit__content" data-reveal>

@@ -3,12 +3,27 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import PhilosophyQA from '../components/PhilosophyQA.astro';
+import Awards from '../components/Awards.astro';
 import ProductRange from '../components/ProductRange.astro';
 import Craft from '../components/Craft.astro';
+import Gallery from '../components/Gallery.astro';
 import Recipes from '../components/Recipes.astro';
 import Visit from '../components/Visit.astro';
 import Footer from '../components/Footer.astro';
 import { categories } from '../data/products';
+
+const leadImages: Record<string, { src: string; alt: string; caption?: string }> = {
+  edelbraende: {
+    src: '/images/streuobst-ernte-lead.jpg',
+    alt: 'Ernte der Streuobstwiesen im Herbst',
+    caption: 'Aus den eigenen Streuobstwiesen',
+  },
+  frankenwein: {
+    src: '/images/frankenwein-sonnenstuhl-etikett.jpg',
+    alt: 'Fassetikett aus der Lage Sonnenstuhl',
+    caption: 'Lage Sonnenstuhl, Randersacker',
+  },
+};
 ---
 
 <Layout
@@ -25,11 +40,20 @@ import { categories } from '../data/products';
       answer="Das Haus der edlen Brände ist ein rund 400 Jahre altes fränkisches Fachwerkhaus mitten in der altehrwürdigen Weinbaugemeinde Randersacker am Main. Unsere Familie betreibt hier seit vier Generationen Weinbau auf 4 Hektar und eine Brennerei mit 2 Hektar ökologisch wertvollen Streuobstwiesen. Andi und Peter Piesch leiten den Betrieb — und sind darin, außer zur Weinlese, die einzigen Arbeiter."
     />
 
+    <Awards />
+
     {categories.map((category, i) => (
-      <ProductRange category={category} id={i === 0 ? 'sortiment' : undefined} tone={i % 2 === 1 ? 'alt' : 'default'} />
+      <ProductRange
+        category={category}
+        id={i === 0 ? 'sortiment' : undefined}
+        tone={i % 2 === 1 ? 'alt' : 'default'}
+        leadImage={leadImages[category.id]}
+      />
     ))}
 
     <Craft />
+
+    <Gallery />
 
     <Recipes />
 

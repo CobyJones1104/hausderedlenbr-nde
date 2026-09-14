@@ -38,8 +38,45 @@ den Text eingearbeitet:
 - Geführt von **Andi und Peter Piesch** — außer zur Weinlese die einzigen
   Arbeiter im Betrieb.
 - Die alte Seite hatte zusätzlich Unterseiten zu Prämierungen, Sortenliste,
-  Obst/Verarbeitung, Keller sowie Kunst & Proben — noch nicht übernommen,
-  da der Inhalt dieser Unterseiten (Screenshots/Text) noch fehlt.
+  Obst/Verarbeitung, Keller sowie Kunst & Proben — noch nicht vollständig
+  übernommen, da der Textinhalt dieser Unterseiten noch fehlt.
+- **Echter Prämierungen:** Bayerischer Staatsehrenpreis für Edelbrenner
+  (Bayerisches Staatsministerium für Ernährung, Landwirtschaft und Forsten
+  / BayernBrand) — zwei Verleihungsfotos liegen vor und sind in
+  `src/components/Awards.astro` eingebaut.
+- **Echte Weinlage:** "Sonnenstuhl" (Randersacker) laut Fass-Etikett
+  (Jahrgang 2007, Sorte Regent, Holzfassausbau) — im Frankenwein-Sortiment
+  und als Bild-Detail eingearbeitet.
+
+## Fotos — jetzt mit echtem Material
+
+Die Familie hat 22 eigene Foto-Dateien bereitgestellt (professionelle
+Reportage-Aufnahmen + private Aufnahmen + die beiden Prämierungsfotos).
+Alle tatsächlich verwendeten Bilder liegen sauber benannt in
+`public/images/`; nicht verwendete Originale (Duplikate/ähnliche Motive)
+liegen unangetastet in `archive/` (nicht im Build, nur zur späteren
+Auswahl). Verteilung:
+
+- **Hero** (`hero-verkostung.jpg`) — Verkostungsporträt
+- **Handwerk** (`handwerk-keller.jpg`) — Probeentnahme im Kellergewölbe
+- **Besuch** (`haus-fachwerk.jpg`) — das echte Fachwerkhaus
+- **Streuobst-Edelbrände** (`streuobst-ernte-lead.jpg`) — Ernteszene
+- **Frankenwein** (`frankenwein-sonnenstuhl-etikett.jpg`) — Fass-Etikett
+  "Lage Sonnenstuhl"
+- **Prämierungen** (`praemierung-staatsehrenpreis-1/2.jpg`)
+- **Galerie** (`src/components/Gallery.astro`) — 9 weitere Prozess- und
+  Stimmungsbilder (Brennkessel, Kellergang, Fasslager, Verkostungsecke, …)
+
+Noch als selbst gezeichnete Linien-Illustration (`Illustration.astro`):
+die Flaschen in den Produktkarten und die vier Serviervorschläge-Karten,
+da dafür keine passenden Produktfotos vorliegen.
+
+⚠️ Nutzungsrechte-Hinweis: Die professionellen Aufnahmen tragen im
+Dateinamen den Vermerk eines beauftragten Werbefotografen aus Hassfurt.
+Laut Auskunft des Auftraggebers sind die Rechte für dieses Projekt geklärt
+— das aber bitte vor dem Livegang nochmal mit dem eigentlichen
+Rechteinhaber (der Brennerei selbst) gegenchecken, falls das noch nicht
+abschließend geklärt ist.
 
 ## ⚠️ Vor dem Livegang — das ist noch offen
 
@@ -50,30 +87,18 @@ den Text eingearbeitet:
 echtes Logo (SVG/PNG) vorliegt: Komponente auf
 `<img src="/images/logo.svg">` umstellen.
 
-### 2. Fotos
+### 2. Produktfotos
 
-Jeder `.media--placeholder`-Block (Hero, Produktkarten, Handwerk, Besuch,
-Rezepte) zeigt aktuell eine selbst gezeichnete Linien-Illustration
-(`src/components/Illustration.astro` — Brennkessel, Weinrebe, Fachwerkhaus,
-Streuobst, Flasche) statt eines echten Fotos. Bewusst so gelöst, weil in
-dieser Bau-Umgebung kein Zugriff auf externe Bild-CDNs (Unsplash, Pexels,
-Pixabay, die Portfolio-Seite des Fotografen der Reportage, …) möglich war
-— die Netzwerk-Policy dieser Session blockt praktisch alle Fremd-Domains.
-
-Sobald echte Fotos vorliegen — **wichtig:** die Reportage von Giel
-Bildwelten darf nur mit geklärten Nutzungsrechten verwendet werden, dazu
-muss der tatsächliche Auftraggeber/Rechteinhaber (die Brennerei) zustimmen,
-nicht nur ein Familienmitglied — in `public/images/` ablegen und die
-`<Illustration>`-Aufrufe in den jeweiligen Komponenten durch `<img>`/
-`<picture>` ersetzen.
+Für echte Flaschenfotos (Produktkarten) und Serviervorschläge liegt noch
+kein Material vor — aktuell Illustrationen, siehe oben.
 
 ### 3. Sortiment & Preise
 
 `src/data/products.ts` enthält plausible Beispielprodukte, die zur
-bestätigten Betriebsform passen (Streuobst-Edelbrände + Frankenwein statt
-der ursprünglich erfundenen Whisky/Gin-Kategorien) — Namen, %vol und
-Preise sind aber weiterhin **nicht die echte Sortenliste**. Vor dem
-Livegang durch die echten Sorten, Prämierungen und Preise ersetzen.
+bestätigten Betriebsform passen (Streuobst-Edelbrände + Frankenwein,
+inkl. der echten Lage "Sonnenstuhl") — Namen, %vol und Preise sind aber
+weiterhin **nicht die echte, vollständige Sortenliste**. Vor dem Livegang
+durch die echten Sorten und Preise ersetzen.
 
 ### 4. Kontakt & Öffnungszeiten
 

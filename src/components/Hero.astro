@@ -1,11 +1,17 @@
 ---
-import Illustration from './Illustration.astro';
-/** Full-bleed hero — swap .media--placeholder for a real photo/video once assets arrive. */
+/** Full-bleed hero photo — Andi bzw. Peter Piesch bei der Verkostung. */
 ---
 
 <section class="hero">
-  <div class="hero__media media media--placeholder media--placeholder--dark" data-placeholder-label="Foto folgt — z. B. Brennkessel, Fasslager oder Etikett in Nahaufnahme">
-    <Illustration variant="still" />
+  <div class="hero__media media">
+    <img
+      src="/images/hero-verkostung.jpg"
+      alt="Verkostung eines Edelbrands im Glas, Haus der edlen Brände"
+      width="1200"
+      height="675"
+      loading="eager"
+      decoding="async"
+    />
   </div>
   <div class="hero__content container">
     <h1 data-reveal>Tradition,<br />die man <em>schmeckt.</em></h1>

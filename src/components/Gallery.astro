@@ -1,0 +1,50 @@
+---
+const photos = [
+  { src: '/images/galerie-brennkessel.jpg', alt: 'Kupferbrennkessel im gemauerten Brennofen', big: true },
+  { src: '/images/galerie-destillat-glas.jpg', alt: 'Frischer Brand wird ins Glas gegossen' },
+  { src: '/images/galerie-kellergang.jpg', alt: 'Gewölbter Kellergang mit Fässern' },
+  { src: '/images/galerie-mispel-haende.jpg', alt: 'Von Hand geerntete Mispeln' },
+  { src: '/images/galerie-kerze-fass.jpg', alt: 'Kerze auf einem alten Weinfass' },
+  { src: '/images/galerie-eingiessen.jpg', alt: 'Destillat wird in ein Kupfergefäß gegossen' },
+  { src: '/images/galerie-abfuellen.jpg', alt: 'Abfüllen des frischen Brands' },
+  { src: '/images/galerie-fasslager.jpg', alt: 'Eichenfässer im Fasslager' },
+  { src: '/images/galerie-verkostungsecke.jpg', alt: 'Rustikale Verkostungsecke im Haus' },
+];
+---
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-heading">
+      <h2 data-reveal>Einblicke</h2>
+      <span class="section-heading__mark" aria-hidden="true">—</span>
+    </div>
+
+    <div class="gallery-grid" data-stagger>
+      {photos.map((p) => (
+        <div class:list={['gallery-item', p.big && 'gallery-item--big']}>
+          <div class="media media--4x3 media--hover">
+            <img src={p.src} alt={p.alt} loading="lazy" decoding="async" />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--grid-gap);
+  }
+  .gallery-item--big { grid-column: span 2; }
+
+  @media (max-width: 860px) {
+    .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gallery-item--big { grid-column: span 2; }
+  }
+  @media (max-width: 560px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item--big { grid-column: span 1; }
+  }
+</style>
